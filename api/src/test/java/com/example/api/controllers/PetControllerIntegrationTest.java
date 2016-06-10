@@ -59,10 +59,10 @@ public class PetControllerIntegrationTest
 
 		// check POST
 		MockHttpServletRequestBuilder mockBuilder = MockMvcRequestBuilders.post(petUri)
-		      .header(PetController.G_PARAM_PET_NAME, TEST_PET_NAME)
-		      .header(PetController.G_PARAM_PET_RASE, TEST_PET_RASE)
-//		      .header(PetController.G_PARAM_PET_OWNER, TEST_PET_OWNER)
-		      .header(PetController.G_PARAM_PET_COLOR, TEST_PET_COLOR);
+		      .param(PetController.G_PARAM_PET_NAME, TEST_PET_NAME)
+		      .param(PetController.G_PARAM_PET_RASE, TEST_PET_RASE)
+//		      .param(PetController.G_PARAM_PET_OWNER, TEST_PET_OWNER)
+		      .param(PetController.G_PARAM_PET_COLOR, TEST_PET_COLOR);
 
 		mockBuilder.accept(MediaType.APPLICATION_JSON);
 
@@ -76,7 +76,7 @@ public class PetControllerIntegrationTest
 		
 		
 		// check successful request
-		mockBuilder.header(PetController.G_PARAM_PET_OWNER, TEST_PET_OWNER);
+		mockBuilder.param(PetController.G_PARAM_PET_OWNER, TEST_PET_OWNER);
 		
 
 		result = mvc.perform(mockBuilder).andReturn();
