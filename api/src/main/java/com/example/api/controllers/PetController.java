@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ApiInputException;
@@ -60,14 +61,14 @@ public class PetController extends AbstractApiController
 	      method = RequestMethod.POST,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Pet> create(
-	      @RequestHeader(name = G_PARAM_PET_NAME, required = false) String petName,
-	      @RequestHeader(name = G_PARAM_PET_RASE, required = false) String petRase,
-	      @RequestHeader(name = G_PARAM_PET_OWNER, required = false) String petOwner,
-	      @RequestHeader(name = G_PARAM_PET_COLOR, required = false) String petColor,
-	      @RequestHeader(name = G_PARAM_PET_SKILL, required = false) String petSkill)
+	      @RequestParam(name = G_PARAM_PET_NAME, required = false) String petName,
+	      @RequestParam(name = G_PARAM_PET_RASE, required = false) String petRase,
+	      @RequestParam(name = G_PARAM_PET_OWNER, required = false) String petOwner,
+	      @RequestParam(name = G_PARAM_PET_COLOR, required = false) String petColor,
+	      @RequestParam(name = G_PARAM_PET_SKILL, required = false) String petSkill)
 	            throws ApiInputException
 	{
-		log.debug("POST pet id: %d", petName, petRase);
+		log.debug("POST pet name: %s", petName, petRase, petOwner);
 
 		if (Strings.isNullOrEmpty(petName))
 		{
