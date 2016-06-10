@@ -1,0 +1,261 @@
+{
+	"id": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+	"name": "petstore",
+	"description": "",
+	"order": [
+		"6c500437-0a63-3c32-4656-9960766c692d",
+		"1ab8f653-ccf5-3dc1-f9fc-0ebcd2addcf5",
+		"5c371adc-423e-5153-2edf-34e7fcc0da12",
+		"de1d9d4a-73b2-2a88-05e9-670a0da2390b",
+		"bf619e47-5f33-c135-71e1-994dae836781",
+		"6e202379-0fb2-0e5f-7569-9ad3e7cecaba",
+		"9d1af1fd-8283-f1bb-a841-afb8fcd65bc1",
+		"2e14e7b8-4d02-c563-867c-6218f738344c"
+	],
+	"folders": [],
+	"timestamp": 1465546627175,
+	"owner": "279782",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "1ab8f653-ccf5-3dc1-f9fc-0ebcd2addcf5",
+			"headers": "",
+			"url": "localhost:8080/pet",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "petName",
+					"value": "Coco",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petRase",
+					"value": "parot",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petOwner",
+					"value": "Bojan",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petColor",
+					"value": "Yellow",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petSkill",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465566945345,
+			"name": "localhost:8080/pet (Coco)",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		},
+		{
+			"id": "2e14e7b8-4d02-c563-867c-6218f738344c",
+			"headers": "",
+			"url": "localhost:8080/pet/2",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465553695080,
+			"name": "localhost:8080/pet (id:2)",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		},
+		{
+			"id": "5c371adc-423e-5153-2edf-34e7fcc0da12",
+			"headers": "",
+			"url": "localhost:8080/pet",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "petName",
+					"value": "Miuwah",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petRase",
+					"value": "rabbit",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petOwner",
+					"value": "Alice",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petColor",
+					"value": "white/gray/baige",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petSkill",
+					"value": "poo",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465567927085,
+			"name": "localhost:8080/pet (Mimi)",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		},
+		{
+			"id": "6c500437-0a63-3c32-4656-9960766c692d",
+			"headers": "",
+			"url": "localhost:8080/pets",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465551723804,
+			"name": "localhost:8080/pets",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		},
+		{
+			"id": "6e202379-0fb2-0e5f-7569-9ad3e7cecaba",
+			"headers": "",
+			"url": "localhost:8080/pet/2",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465553027384,
+			"name": "localhost:8080/pet (id:2)",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		},
+		{
+			"id": "9d1af1fd-8283-f1bb-a841-afb8fcd65bc1",
+			"headers": "",
+			"url": "localhost:8080/pet/1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465553519375,
+			"name": "localhost:8080/pet (id:1)",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		},
+		{
+			"id": "bf619e47-5f33-c135-71e1-994dae836781",
+			"headers": "",
+			"url": "localhost:8080/pet/1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465553020964,
+			"name": "localhost:8080/pet (id:1)",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		},
+		{
+			"id": "de1d9d4a-73b2-2a88-05e9-670a0da2390b",
+			"headers": "",
+			"url": "localhost:8080/pet",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "petName",
+					"value": "Miuwah",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petRase",
+					"value": "rabbit",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petOwner",
+					"value": "Alice",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "petColor",
+					"value": "white/gray/baige",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465567935690,
+			"name": "localhost:8080/pet (Mimi2)",
+			"description": "",
+			"collectionId": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+			"responses": []
+		}
+	]
+}
