@@ -35,6 +35,7 @@ public class PetController extends AbstractApiController
 	@Autowired
 	private PetRepository petRepo;
 
+	@CrossOrigin()
 	@RequestMapping(value = PET + "/{petId}",
 	      method = RequestMethod.GET,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
@@ -54,6 +55,7 @@ public class PetController extends AbstractApiController
 		return ResponseEntity.ok(pet);
 	}
 
+	@CrossOrigin()
 	@RequestMapping(value = PET,
 	      method = RequestMethod.POST,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
@@ -94,6 +96,7 @@ public class PetController extends AbstractApiController
 		return ResponseEntity.ok(pet);
 	}
 
+	@CrossOrigin()
 	@RequestMapping(value = PET + "/{petId}",
 	      method = RequestMethod.DELETE,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
