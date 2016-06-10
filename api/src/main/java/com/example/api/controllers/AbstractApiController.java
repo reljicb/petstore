@@ -12,25 +12,31 @@ import com.example.ApiInputException;
 @ControllerAdvice
 public abstract class AbstractApiController
 {
-	@ExceptionHandler(ApiInputException.class)
-	public ResponseEntity handleApiExceptions(ApiInputException e) throws IOException
+	@ExceptionHandler(Throwable.class)
+	public ResponseEntity<ErrorMessage> handleApiExceptions(Throwable t) throws IOException
 	{
-
-		if (e.getStatus() == HttpStatus.NOT_FOUND)
+		if (t instanceof ApiInputException)
 		{
-			return ResponseEntity.notFound()
-			      .header("error", e.getMessage())
-			      .build();
+			ApiInputException e = (ApiInputException) t;
+
+			return ResponseEntity
+			      .status(e.getStatus())
+			      .body(new ErrorMessage(e.getMessage()));
 		}
 
-		if (e.getStatus() == HttpStatus.BAD_REQUEST)
-		{
-			return ResponseEntity.badRequest()
-			      .header("error", e.getMessage())
-			      .build();
-		}
+		return ResponseEntity
+		      .status(HttpStatus.INTERNAL_SERVER_ERROR)
+		      .body(new ErrorMessage(t.getMessage()));
+	}
 
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+	private class ErrorMessage
+	{
+		public String error;
+
+		public ErrorMessage(String error)
+		{
+			this.error = error;
+		}
 	}
 
 }

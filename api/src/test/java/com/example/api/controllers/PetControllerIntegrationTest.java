@@ -71,7 +71,7 @@ public class PetControllerIntegrationTest
 		MvcResult result = mvc.perform(mockBuilder).andReturn();
 		int status = result.getResponse().getStatus();
 
-		assertEquals("Pet must have owner - owner param is mandatory", status, HttpStatus.BAD_REQUEST.value());
+		assertEquals("Pet must have owner - owner param is mandatory", HttpStatus.BAD_REQUEST.value(), status);
 		log.info("status: {}", status);
 		
 		
@@ -82,7 +82,7 @@ public class PetControllerIntegrationTest
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 
-		assertEquals("pet POST failed", status, HttpStatus.OK.value());
+		assertEquals("pet POST failed", HttpStatus.OK.value(), status);
 		log.info("Pet POST status: {}", status);
 		
 		
@@ -94,7 +94,7 @@ public class PetControllerIntegrationTest
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 
-		assertEquals(String.format("Pet id: %d cannot be retrieved", TEST_PET_ID), status, HttpStatus.OK.value());
+		assertEquals(String.format("Pet id: %d cannot be retrieved", TEST_PET_ID), HttpStatus.OK.value(), status);
 		log.info("Pet GET status: {}", status);
 		log.info(result.getResponse().getContentAsString());
 
@@ -105,7 +105,7 @@ public class PetControllerIntegrationTest
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 
-		assertEquals(String.format("Pet id: %d cannot be deleted", TEST_PET_ID), status, HttpStatus.OK.value());
+		assertEquals(String.format("Pet id: %d cannot be deleted", TEST_PET_ID), HttpStatus.OK.value(), status);
 		log.info("Pet DELETE status: {}", status);
 
 		mockBuilder = MockMvcRequestBuilders.get(petUri +"/" +TEST_PET_ID);
@@ -114,6 +114,6 @@ public class PetControllerIntegrationTest
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 
-		assertEquals(String.format("Pet id: %d should not be present after deletion", TEST_PET_ID), status, HttpStatus.NOT_FOUND.value());
+		assertEquals(String.format("Pet id: %d should not be present after deletion", TEST_PET_ID), HttpStatus.NOT_FOUND.value(), status);
 	}
 }

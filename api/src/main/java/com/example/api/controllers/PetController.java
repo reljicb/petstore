@@ -58,9 +58,9 @@ public class PetController extends AbstractApiController
 	      method = RequestMethod.POST,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Pet> create(
-	      @RequestHeader(name = G_PARAM_PET_NAME) String petName,
-	      @RequestHeader(name = G_PARAM_PET_RASE) String petRase,
-	      @RequestHeader(name = G_PARAM_PET_OWNER) String petOwner,
+	      @RequestHeader(name = G_PARAM_PET_NAME, required = false) String petName,
+	      @RequestHeader(name = G_PARAM_PET_RASE, required = false) String petRase,
+	      @RequestHeader(name = G_PARAM_PET_OWNER, required = false) String petOwner,
 	      @RequestHeader(name = G_PARAM_PET_COLOR, required = false) String petColor,
 	      @RequestHeader(name = G_PARAM_PET_SKILL, required = false) String petSkill)
 	            throws ApiInputException
