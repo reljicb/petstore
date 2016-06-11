@@ -1,13 +1,20 @@
 package com.example.api.controllers;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+
+import javax.servlet.Filter;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,9 +25,16 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.example.PetstoreApplication;
 import com.example.api.repositories.PetRepository;
+import com.google.common.collect.Lists;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = PetstoreApplication.class)
@@ -36,11 +50,35 @@ public class PetControllerIntegrationTest
 
 	@Autowired
 	private PetRepository petRepo;
+	
+	@Autowired
+	private WebApplicationContext wac;
+	
+
+	@Bean
+	public Filter jwtFilter()
+	{
+		return new JwtFilter();
+	}
+
+	@Bean
+	public Filter corsFilter()
+	{
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowCredentials(true);
+		config.addAllowedOrigin("*");
+		config.addAllowedHeader("*");
+		config.addAllowedMethod("*");
+		source.registerCorsConfiguration("/**", config);
+		return new CorsFilter(source);
+	}
 
 	@Before
 	public void setup()
 	{
-		mvc = MockMvcBuilders.webAppContextSetup(webConfig).build();
+		List<Filter> filters = Lists.newArrayList(corsFilter(), jwtFilter());
+		mvc = MockMvcBuilders.webAppContextSetup(webConfig).addFilters(filters.toArray(new Filter[filters.size()])).build();
 //		TestUtils.cleanDb(daRepo);
 //		prepareTestSesson();
 	}
@@ -50,6 +88,9 @@ public class PetControllerIntegrationTest
 	private static String TEST_PET_OWNER = "Alice";
 	private static String TEST_PET_COLOR = "white/gray/beige";
 
+	private static MockHttpServletRequestBuilder signRequest(MockHttpServletRequestBuilder mockBuilder){
+		return mockBuilder.header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNDY1NjY4MjE2fQ.YF4Vs7ieiXJceVPpWqB6vWtlu0_bYF2k7uX5DVDEUXI");	
+	}
 	@Test
 	public void testIntegration() throws Exception
 	{
@@ -64,10 +105,11 @@ public class PetControllerIntegrationTest
 //		      .param(PetController.G_PARAM_PET_OWNER, TEST_PET_OWNER)
 		      .param(PetController.G_PARAM_PET_COLOR, TEST_PET_COLOR);
 
-		mockBuilder.accept(MediaType.APPLICATION_JSON);
+		mockBuilder
+			.accept(MediaType.APPLICATION_JSON);
 
-		
 		// check mandatory params
+		signRequest(mockBuilder);
 		MvcResult result = mvc.perform(mockBuilder).andReturn();
 		int status = result.getResponse().getStatus();
 
@@ -78,7 +120,7 @@ public class PetControllerIntegrationTest
 		// check successful request
 		mockBuilder.param(PetController.G_PARAM_PET_OWNER, TEST_PET_OWNER);
 		
-
+		signRequest(mockBuilder);
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 
@@ -91,6 +133,7 @@ public class PetControllerIntegrationTest
 		mockBuilder = MockMvcRequestBuilders.get(petUri +"/" +TEST_PET_ID);
 		mockBuilder.accept(MediaType.APPLICATION_JSON);
 		
+		signRequest(mockBuilder);
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 
@@ -102,6 +145,7 @@ public class PetControllerIntegrationTest
 		mockBuilder = MockMvcRequestBuilders.delete(petUri +"/" +TEST_PET_ID);
 		mockBuilder.accept(MediaType.APPLICATION_JSON);
 		
+		signRequest(mockBuilder);
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 
@@ -111,6 +155,7 @@ public class PetControllerIntegrationTest
 		mockBuilder = MockMvcRequestBuilders.get(petUri +"/" +TEST_PET_ID);
 		mockBuilder.accept(MediaType.APPLICATION_JSON);
 		
+		signRequest(mockBuilder);
 		result = mvc.perform(mockBuilder).andReturn();
 		status = result.getResponse().getStatus();
 

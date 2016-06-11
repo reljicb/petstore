@@ -21,18 +21,21 @@
 		        <img style="max-width:120px; margin-top: -7px;"
 		             src="/images/logo.png"></a>
 
-			<div class="nav" role="navigation">
+			<div ng-controller="HeaderCtrl" class="nav" role="navigation">
 				<ul class="nav nav-tabs" role="tablist">
 					
 					<li><a href="/">Home</a></li>
 					
-					<li class="dropdown">
+					<li ng-if="loggedIn()" class="dropdown">
 					  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pets <span class="caret"></span></a>
 					  <ul class="dropdown-menu" role="menu">
 						<li><a href="#Pets">List All</a></li>
-						<li><a href="#addPet">Add</a></li>
+						<li ng-if="loginService.roleAdmin"><a href="#addPet">Add</a></li>
 					  </ul>
 					</li>				
+
+					<li ng-if="!loggedIn()"><a href="/#login">Login</a></li>
+					<li ng-if="loggedIn()"><a href="/#logout">Logout ({{loginService.username}})</a></li>
 				</ul>
 			</div>
 
@@ -47,5 +50,6 @@
 		<script src="https://code.angularjs.org/1.2.18/angular-route.min.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/petsCtrl.js"></script>
+		<script src="js/services.js"></script>
 	</body>
 </html>

@@ -1,0 +1,318 @@
+{
+	"variables": [],
+	"info": {
+		"name": "petstore",
+		"_postman_id": "39e2459e-10c5-584a-7c98-0815e162b7c1",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/user/login (user)",
+			"request": {
+				"url": "localhost:8080/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"user\", \"password\": \"user\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/user/login (admin)",
+			"request": {
+				"url": "localhost:8080/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"admin\", \"password\": \"admin\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pets",
+			"request": {
+				"url": "http://localhost:8080/api/pets",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTQ2NTY2ODExMX0.CNRXe2PdNCbF4O5hs6ToeCJGSaZuHq3F_WclUoze8yI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (Coco)",
+			"request": {
+				"url": "localhost:8080/api/pet",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNDY1NjY4MjE2fQ.YF4Vs7ieiXJceVPpWqB6vWtlu0_bYF2k7uX5DVDEUXI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "petName",
+							"value": "Coco",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petRase",
+							"value": "parot",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petOwner",
+							"value": "Bojan",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petColor",
+							"value": "Yellow",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petSkill",
+							"value": "",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (Mimi)",
+			"request": {
+				"url": "localhost:8080/api/pet",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNDY1NjY4MjE2fQ.YF4Vs7ieiXJceVPpWqB6vWtlu0_bYF2k7uX5DVDEUXI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "petName",
+							"value": "Miuwah3",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petRase",
+							"value": "rabbit",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petOwner",
+							"value": "Alice",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petColor",
+							"value": "white/gray/baige",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petSkill",
+							"value": "poo",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (user)",
+			"request": {
+				"url": "localhost:8080/api/pet",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTQ2NTY2ODExMX0.CNRXe2PdNCbF4O5hs6ToeCJGSaZuHq3F_WclUoze8yI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "petName",
+							"value": "Miuwah",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petRase",
+							"value": "rabbit",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petOwner",
+							"value": "Alice",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "petColor",
+							"value": "white/gray/baige",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (id:1)",
+			"request": {
+				"url": "localhost:8080/api/pet/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTQ2NTY2ODExMX0.CNRXe2PdNCbF4O5hs6ToeCJGSaZuHq3F_WclUoze8yI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (id:2)",
+			"request": {
+				"url": "localhost:8080/api/pet/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTQ2NTY2ODExMX0.CNRXe2PdNCbF4O5hs6ToeCJGSaZuHq3F_WclUoze8yI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (id:1)",
+			"request": {
+				"url": "localhost:8080/api/pet/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNDY1NjY4MjE2fQ.YF4Vs7ieiXJceVPpWqB6vWtlu0_bYF2k7uX5DVDEUXI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (id:2)",
+			"request": {
+				"url": "localhost:8080/api/pet/2",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNDY1NjY4MjE2fQ.YF4Vs7ieiXJceVPpWqB6vWtlu0_bYF2k7uX5DVDEUXI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pet (id:1 - user)",
+			"request": {
+				"url": "localhost:8080/api/pet/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTQ2NTY2ODExMX0.CNRXe2PdNCbF4O5hs6ToeCJGSaZuHq3F_WclUoze8yI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

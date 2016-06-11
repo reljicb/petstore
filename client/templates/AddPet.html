@@ -1,19 +1,20 @@
-<html ng-app="elpets">
-<h2>Add New Pet</h2>
- 
-<form ng-submit="addPet()"> 
+<html ng-app="elpets"><span ng-if="loggedIn()">
+
+	<h2>Add New Pet</h2>
+	 
+	<form ng-submit="addPet()"> 
 
 
-	<fieldset class="form-group"><label for="petName" >Name</label><input  class="form-control" id="petName" type="text" ng-model="pet.name" /></fieldset>
-	<fieldset class="form-group"><label for="petRase" >Rase</label><input  class="form-control" id="petRase" type="text" ng-model="pet.rase" /></fieldset>
-	<fieldset class="form-group"><label for="petOwner" >Owner</label><input class="form-control" id="petOwner" type="text" ng-model="pet.owner" /></fieldset>
-	<fieldset class="form-group"><label for="petColor" >Color</label><input class="form-control" id="petColor" type="text" ng-model="pet.color" /></fieldset>
-	<fieldset class="form-group"><label for="petSkill" >Skill</label><input class="form-control" id="petSkill" type="text" ng-model="pet.skill" /></fieldset>
+		<fieldset class="form-group"><label for="petName" >Name</label><input  class="form-control" id="petName" type="text" ng-model="pet.name" /></fieldset>
+		<fieldset class="form-group"><label for="petRase" >Rase</label><input  class="form-control" id="petRase" type="text" ng-model="pet.rase" /></fieldset>
+		<fieldset class="form-group"><label for="petOwner" >Owner</label><input class="form-control" id="petOwner" type="text" ng-model="pet.owner" /></fieldset>
+		<fieldset class="form-group"><label for="petColor" >Color</label><input class="form-control" id="petColor" type="text" ng-model="pet.color" /></fieldset>
+		<fieldset class="form-group"><label for="petSkill" >Skill</label><input class="form-control" id="petSkill" type="text" ng-model="pet.skill" /></fieldset>
 
-	<button type="submit">Add Pet</button>
+		<button type="submit">Add Pet</button>
 
-</form>
-<p>{{AddResult}}</p>
-<a href="/" ng-show="AddResult == 'Success!'">View All Pets</a> 
+	</form>
+	<p>{{error ? error : AddResult}}</p>
+	<a href="/" ng-show="AddResult == 'Success!'">View All Pets</a> 
 
-</html>
+</span></html>

@@ -2,6 +2,9 @@ package com.example.api.controllers;
 
 import static com.google.common.base.Preconditions.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +26,7 @@ import com.google.common.base.Strings;
 @RestController
 public class PetController extends AbstractApiController
 {
-	protected static final String PET = "/pet";
+	protected static final String PET = API_PATH + "/pet";
 
 	protected static final String G_PARAM_PET_NAME = "petName";
 	protected static final String G_PARAM_PET_RASE = "petRase";
@@ -40,10 +43,12 @@ public class PetController extends AbstractApiController
 	@RequestMapping(value = PET + "/{petId}",
 	      method = RequestMethod.GET,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Pet> get(@PathVariable Long petId)
-	      throws ApiInputException
+	public ResponseEntity<Pet> get(@PathVariable Long petId, final HttpServletRequest request)
+	      throws ApiInputException, ServletException
 	{
 		log.debug("GET pet id: %d", petId);
+
+		UserController.checkAuthorization(UserController.ROLE_USER, request);
 
 		checkNotNull(petId);
 
@@ -65,10 +70,13 @@ public class PetController extends AbstractApiController
 	      @RequestParam(name = G_PARAM_PET_RASE, required = false) String petRase,
 	      @RequestParam(name = G_PARAM_PET_OWNER, required = false) String petOwner,
 	      @RequestParam(name = G_PARAM_PET_COLOR, required = false) String petColor,
-	      @RequestParam(name = G_PARAM_PET_SKILL, required = false) String petSkill)
-	            throws ApiInputException
+	      @RequestParam(name = G_PARAM_PET_SKILL, required = false) String petSkill,
+	      final HttpServletRequest request)
+	            throws ApiInputException, ServletException
 	{
 		log.debug("POST pet name: %s", petName, petRase, petOwner);
+
+		UserController.checkAuthorization(UserController.ROLE_ADMIN, request);
 
 		if (Strings.isNullOrEmpty(petName))
 		{
@@ -101,10 +109,12 @@ public class PetController extends AbstractApiController
 	@RequestMapping(value = PET + "/{petId}",
 	      method = RequestMethod.DELETE,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Pet> delete(@PathVariable Long petId)
-	      throws ApiInputException
+	public ResponseEntity<Pet> delete(@PathVariable Long petId, final HttpServletRequest request)
+	      throws ApiInputException, ServletException
 	{
 		log.debug("DELETE pet id: %d", petId);
+
+		UserController.checkAuthorization(UserController.ROLE_ADMIN, request);
 
 		checkNotNull(petId);
 

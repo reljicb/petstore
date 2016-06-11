@@ -1,11 +1,15 @@
-<html ng-app="elpets">
-<h2>Delete Pet '{{pets.name}}'</h2>
+<html ng-app="elpets"><span ng-if="loggedIn()">
 
-<div ng-hide="DeleteResult">
-<p>Are you sure you want to delete the pet '{{pets.name}}'?</p>
-<button ng-click="deletePet()">Yes</button>
-<a href="/">No</a>
-</div>
-<p>{{DeleteResult}}</p>
-<a href="/" ng-show="DeleteResult == 'Success!'">View All Pets</a> 
-</html>
+	<h2>Delete Pet '{{pet.name}}'</h2>
+
+	<div ng-hide="DeleteResult">
+		<p>Are you sure you want to delete the pet '{{pet.name}}'?</p>
+		<button ng-click="deletePet()">Yes</button>
+		<a href="/">No</a>
+	</div>
+
+	<p ng-bind="error ? error : DeleteResult"></p>
+
+	<a href="/" ng-show="DeleteResult == 'Success!'">View All Pets</a> 
+
+</span></html>

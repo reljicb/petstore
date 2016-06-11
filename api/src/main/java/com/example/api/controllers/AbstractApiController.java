@@ -12,6 +12,8 @@ import com.example.ApiInputException;
 @ControllerAdvice
 public abstract class AbstractApiController
 {
+	public static final String API_PATH = "/api";
+
 	@ExceptionHandler(Throwable.class)
 	public ResponseEntity<ErrorMessage> handleApiExceptions(Throwable t) throws IOException
 	{
