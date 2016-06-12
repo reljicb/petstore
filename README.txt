@@ -1,5 +1,6 @@
+########################################################
 REQUIREMENTS
--------------------------
+
 * [Java Platform (JDK) 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle 2.9](http://gradle.org/)
 	1. Download binary distribution from the official website
@@ -36,9 +37,40 @@ Run automated tests
 
 Run Petstore Client
 -------------------------
-1. Point your webserver to the folder 'client' (for example, by executing 'python -m SimpleHTTPServer 9000' in the directory)
+1. Point your webserver to the folder 'client' (for example, by executing 'node server.js' from the client home directory)
 2. Point your browser to http://localhost:9000/
 
 
-IMPORTANT NOTES:
-	- Localhost API is running on H2 in-memory database. Stoping the API process wipes out all the data.
+
+########################################################
+DEPLOYMENT
+(Bluemix)
+
+Requirements
+-------------------------
+1. Install Bluemix CLI, and CloudFoundry CLI
+
+API
+-------------------------
+1. Login to Bluemix:
+	bluemix login -a https://api.eu-gb.bluemix.net
+2. Got to API directory (/api)
+3. Push app
+	cf push reljicbpetstore -p build/libs/petstore-0.0.1-SNAPSHOT.jar -b https://github.com/cloudfoundry/java-buildpack.git
+4. Run app
+	cf start reljicbpetstore
+
+Client
+-------------------------
+1. Login to Bluemix:
+	bluemix login -a https://api.eu-gb.bluemix.net
+2. Got to client application directory (/client)
+3. Push app
+	cf push reljicbpetstoreclient
+4. Run app
+	cf start reljicbpetstoreclient
+
+
+########################################################
+NOTES
+	- API application is running on in-memory database. Stoping the API process wipes out all the data.
