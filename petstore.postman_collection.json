@@ -8,9 +8,9 @@
 	},
 	"item": [
 		{
-			"name": "localhost:8080/user/login (user)",
+			"name": "/user/login (user)",
 			"request": {
-				"url": "localhost:8080/user/login",
+				"url": "{{url}}/user/login",
 				"method": "POST",
 				"header": [
 					{
@@ -28,9 +28,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/user/login (admin)",
+			"name": "/user/login (admin)",
 			"request": {
-				"url": "localhost:8080/user/login",
+				"url": "{{url}}/user/login",
 				"method": "POST",
 				"header": [
 					{
@@ -48,9 +48,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pets",
+			"name": "/pets",
 			"request": {
-				"url": "http://localhost:8080/api/pets",
+				"url": "{{url}}/api/pets",
 				"method": "GET",
 				"header": [
 					{
@@ -68,9 +68,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (Coco)",
+			"name": "/pet (Coco)",
 			"request": {
-				"url": "localhost:8080/api/pet",
+				"url": "{{url}}/api/pet",
 				"method": "POST",
 				"header": [
 					{
@@ -119,9 +119,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (Mimi)",
+			"name": "/pet (Mimi)",
 			"request": {
-				"url": "localhost:8080/api/pet",
+				"url": "{{url}}/api/pet",
 				"method": "POST",
 				"header": [
 					{
@@ -170,9 +170,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (user)",
+			"name": "/pet (user)",
 			"request": {
-				"url": "localhost:8080/api/pet",
+				"url": "{{url}}/api/pet",
 				"method": "POST",
 				"header": [
 					{
@@ -215,9 +215,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (id:1)",
+			"name": "/pet (id:1)",
 			"request": {
-				"url": "localhost:8080/api/pet/1",
+				"url": "{{url}}/api/pet/1",
 				"method": "GET",
 				"header": [
 					{
@@ -235,9 +235,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (id:2)",
+			"name": "/pet (id:2)",
 			"request": {
-				"url": "localhost:8080/api/pet/2",
+				"url": "{{url}}/api/pet/2",
 				"method": "GET",
 				"header": [
 					{
@@ -255,9 +255,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (id:1)",
+			"name": "/pet (id:1)",
 			"request": {
-				"url": "localhost:8080/api/pet/1",
+				"url": "{{url}}/api/pet/1",
 				"method": "DELETE",
 				"header": [
 					{
@@ -275,9 +275,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (id:2)",
+			"name": "/pet (id:2)",
 			"request": {
-				"url": "localhost:8080/api/pet/2",
+				"url": "{{url}}/api/pet/2",
 				"method": "DELETE",
 				"header": [
 					{
@@ -295,9 +295,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/pet (id:1 - user)",
+			"name": "/pet (id:1 - user)",
 			"request": {
-				"url": "localhost:8080/api/pet/1",
+				"url": "{{url}}/api/pet/1",
 				"method": "DELETE",
 				"header": [
 					{
