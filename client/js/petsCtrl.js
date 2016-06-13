@@ -1,5 +1,5 @@
-// var REMOTE_URL_API = 'http://localhost:8080/api';
-var REMOTE_URL_API = 'http://reljicbpetstore.eu-gb.mybluemix.net:80/api';
+var REMOTE_URL_API = 'http://localhost:8080/api';
+// var REMOTE_URL_API = 'http://reljicbpetstore.eu-gb.mybluemix.net:80/api';
 
 var elpets = angular.module('elpets');
 

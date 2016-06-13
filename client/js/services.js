@@ -1,5 +1,5 @@
-// var API_URL = 'http://localhost:8080';
-var API_URL = 'http://reljicbpetstore.eu-gb.mybluemix.net:80';
+var API_URL = 'http://localhost:8080';
+// var API_URL = 'http://reljicbpetstore.eu-gb.mybluemix.net:80';
 
 var elpets = angular.module('elpets');
 

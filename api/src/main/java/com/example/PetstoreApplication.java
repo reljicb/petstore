@@ -77,6 +77,7 @@ public class PetstoreApplication extends WebMvcConfigurerAdapter
 			public void addCorsMappings(CorsRegistry registry)
 			{
 				registry.addMapping("/api/*");
+				registry.addMapping("/user/*");
 			}
 		};
 	}
